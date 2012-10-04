@@ -20,5 +20,5 @@ public interface AlbumDao extends GenericDao<Album, Integer> {
      * @param userName
      * @return List of album names
      */
-    List<Album> getAlbumsByUploader(int uploaderId);
+    List<Album> getAlbumsByUser(Long userId);
 }

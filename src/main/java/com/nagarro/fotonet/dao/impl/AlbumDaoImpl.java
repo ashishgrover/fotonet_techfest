@@ -20,11 +20,11 @@ public class AlbumDaoImpl extends AbstractGenericDao<Album, Integer> implements
         AlbumDao {
 
 
-    public List<Album> getAlbumsByUploader(int uploaderId) {
+    public List<Album> getAlbumsByUser(Long userId) {
         
         String queryStr = "from Album where uploaderId = :uploaderId";
         Query query = em.createQuery(queryStr);
-        query.setParameter("uploaderId", uploaderId);
+        query.setParameter("uploaderId", userId);
         List<Album> albums = query.getResultList();
         
         return albums;

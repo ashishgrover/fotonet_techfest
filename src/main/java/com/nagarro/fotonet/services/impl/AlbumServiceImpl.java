@@ -23,12 +23,12 @@ public class AlbumServiceImpl implements AlbumService {
     private AlbumDao albumDao;
     
     @Override
-    public Album getAlbumById(int id) {
+    public Album getAlbumById(Long id) {
         return albumDao.findById(id);
     }
     
     @Override
-    public List<Album> getAlbumsByUploader(int userId) {
+    public List<Album> getAlbumsByUploader(Long userId) {
         return albumDao.getAlbumsByUploader(userId);
     }
     
