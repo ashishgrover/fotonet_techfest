@@ -31,12 +31,12 @@ public class PhotoServiceImpl implements PhotoService {
 	private UserService userService;
 
 	@Override
-	public Photo getPhotoById(Integer id) {
+	public Photo getPhotoById(int id) {
 		return photoDao.findById(id);
 	}
 
 	@Override
-	public List<Photo> getPhotosInAlbum(Integer albumId) {
+	public List<Photo> getPhotosInAlbum(int albumId) {
 		return photoDao.getPhotosInAlbum(albumId);
 	}
 

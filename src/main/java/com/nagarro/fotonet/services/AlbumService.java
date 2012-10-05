@@ -17,7 +17,7 @@ public interface AlbumService {
      * @param name Album name
      * @param userId ID of User creating it
      */
-    void createAlbum(String name, Long userId);
+    void createAlbum(String name, Integer userId);
 
     /**
      * Returns Album with given {@code id}.
@@ -25,14 +25,14 @@ public interface AlbumService {
      * @param id ID of the required Album
      * @return Album with {@code id}
      */
-    Album getAlbumById(Long id);
+    Album getAlbumById(Integer id);
     
     /**
      * Gets all Albums owned by User with given {@code userId}
      * @param userId ID of User owning the album
      * @return {@link List} of Album
      */
-    List<Album> getAlbumsByUser(Long userId);
+    List<Album> getAlbumsByUser(Integer userId);
 
     /**
      * Gets Album owned by User with {@code userId}
@@ -41,7 +41,7 @@ public interface AlbumService {
      * @param name Name of required album
      * @return Album
      */
-    Album getAlbumByUser(Long userId, String name);
+    Album getAlbumByUser(Integer userId, String name);
 
 
     /**
@@ -50,13 +50,13 @@ public interface AlbumService {
      * @param id ID of Album
      * @param name New name
      */
-    void setAlbumName(Long id, String name);
+    void setAlbumName(Integer id, String name);
 
     /**
      * Deletes the Album with given {@code id}.
      * @param id ID of Album to be deleted
      */
-    void deleteAlbum(Long id);
+    void deleteAlbum(Integer id);
 
     /**
      * Deletes the Album owned by User with {@code userId}
@@ -64,5 +64,7 @@ public interface AlbumService {
      * @param userId ID of owner User
      * @param name Name of Album
      */
-    void deleteAlbum(Long userId, String name);
+    void deleteAlbum(Integer userId, String name);
+    
+    
 }

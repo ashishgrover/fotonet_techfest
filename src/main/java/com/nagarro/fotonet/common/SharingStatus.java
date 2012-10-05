@@ -12,7 +12,7 @@ public enum SharingStatus {
      * PRIVATE: Self only
      * PUBLIC: Everyone
      * SELECTIVE: Chosen buddy groups only
-     * INVALID: Album is unpublished, status have no meaning
+     * INVALID: Album is unpublished, status has no meaning
      */
     PRIVATE, PUBLIC, SELECTIVE, INVALID;
 

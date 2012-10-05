@@ -19,13 +19,13 @@ public interface PhotoService {
      * @param id
      * @return
      */
-    Photo getPhotoById(Integer id);
+    Photo getPhotoById(int id);
     /**
      * 
      * @param albumId
      * @return
      */
-    List<Photo> getPhotosInAlbum(Integer albumId);
+    List<Photo> getPhotosInAlbum(int albumId);
     
     /**
      * 
@@ -38,7 +38,5 @@ public interface PhotoService {
      * 
      */
     void uploadPhoto(Photo path);
-
-
     
 }

@@ -34,9 +34,7 @@ public class Photo extends AbstractChangeableEntity {
 
     @Version
     private Integer version;
-    
-    private Boolean commentsAllowed;
-    
+
     private transient CommonsMultipartFile fileData;
     
     public Photo() {}
@@ -87,20 +85,12 @@ public class Photo extends AbstractChangeableEntity {
         this.version = version;
     }
 
-    public CommonsMultipartFile getFileData() {
-            return fileData;
-    }
+	public CommonsMultipartFile getFileData() {
+		return fileData;
+	}
 
-    public void setFileData(CommonsMultipartFile fileData) {
-            this.fileData = fileData;
-    }
-
-    public Boolean getCommentsAllowed() {
-            return commentsAllowed;
-    }
-
-    public void setCommentsAllowed(Boolean commentsAllowed) {
-            this.commentsAllowed = commentsAllowed;
-    }
-
+	public void setFileData(CommonsMultipartFile fileData) {
+		this.fileData = fileData;
+	}
+    
 }

@@ -20,7 +20,7 @@ public interface PhotoDao extends GenericDao<Photo, Integer> {
      * @param albumId
      * @return List of paths of photos
      */
-    List<Photo> getPhotosInAlbum(Integer albumId);
+    List<Photo> getPhotosInAlbum(int albumId);
     
     /**
      * Returns all the photos uploaded by the user

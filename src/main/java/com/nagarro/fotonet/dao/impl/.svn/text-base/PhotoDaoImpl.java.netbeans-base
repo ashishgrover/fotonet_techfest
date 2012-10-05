@@ -22,7 +22,7 @@ import com.nagarro.fotonet.services.UserService;
 public class PhotoDaoImpl extends AbstractGenericDao<Photo, Integer> implements
         PhotoDao {
     
-    public List<Photo> getPhotosInAlbum(Integer albumId) {
+    public List<Photo> getPhotosInAlbum(int albumId) {
         
         String queryStr = "from Photo where albumId = :albumId";
         Query query = em.createQuery(queryStr);

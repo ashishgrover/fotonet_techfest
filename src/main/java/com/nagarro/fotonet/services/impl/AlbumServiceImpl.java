@@ -23,13 +23,13 @@ public class AlbumServiceImpl implements AlbumService {
     private AlbumDao albumDao;
     
     @Override
-    public Album getAlbumById(Long id) {
+    public Album getAlbumById(Integer id) {
         return albumDao.findById(id);
     }
     
     @Override
-    public List<Album> getAlbumsByUploader(Long userId) {
-        return albumDao.getAlbumsByUploader(userId);
+    public List<Album> getAlbumsByUser(Integer userId) {
+        return albumDao.getAlbumsByUser(userId);
     }
     
     public AlbumDao getAlbumDao() {
@@ -38,6 +38,31 @@ public class AlbumServiceImpl implements AlbumService {
 
     public void setAlbumDao(AlbumDao albumDao) {
         this.albumDao = albumDao;
+    }
+
+    @Override
+    public void createAlbum(String name, Integer userId) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Album getAlbumByUser(Integer userId, String name) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void setAlbumName(Integer id, String name) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void deleteAlbum(Integer id) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public void deleteAlbum(Integer userId, String name) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
 }
