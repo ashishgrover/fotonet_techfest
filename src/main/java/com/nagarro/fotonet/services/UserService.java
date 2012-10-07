@@ -17,7 +17,7 @@ public interface UserService {
      * @param userName User name
      * @return
      */
-    User getUserBySubscriptionId(Long subscriptionId);
+    User getUserBySubscriptionId(Integer subscriptionId);
     
     
     /**

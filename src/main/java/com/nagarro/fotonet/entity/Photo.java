@@ -4,10 +4,15 @@
 package com.nagarro.fotonet.entity;
 
 import java.util.Date;
+import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Version;
 
@@ -26,9 +31,6 @@ public class Photo extends AbstractChangeableEntity {
     @Column(name="photo_name")
     private String photoName;
     
-    @ManyToOne
-    private User uploader;
-    
     @Column(name="path")
     private String path;
 
@@ -36,33 +38,42 @@ public class Photo extends AbstractChangeableEntity {
     private Integer version;
     
     private Boolean commentsAllowed;
+
+    @ManyToMany
+    @JoinTable(name="album_photos",
+        joinColumns=@JoinColumn(name="photo"),
+        inverseJoinColumns=@JoinColumn(name="album"))
+    private List<Album> albums;
+
+    @ManyToMany
+    @JoinTable(name="photo_tag",
+        joinColumns=@JoinColumn(name="photo"),
+        inverseJoinColumns=@JoinColumn(name="tag"))
+    private Set<Tag> tags;
+
+    @OneToMany
+    @JoinTable(name="photo_comment",
+        joinColumns=@JoinColumn(name="photo"),
+        inverseJoinColumns=@JoinColumn(name="comment"))
+    private Set<Comment> comments;
     
     private transient CommonsMultipartFile fileData;
+
     
     public Photo() {}
     
     public Photo(String photoName, User uploader, Date createdOn) {
         this.photoName = photoName;
-        this.uploader = uploader;
         this.createdOn = createdOn;
     }
     
     public Photo(String photoName, User uploader, String path, Integer version, Date createdOn) {
         this.photoName = photoName;
-        this.uploader = uploader;
         this.path = path;
         this.version = version;
         this.createdOn = createdOn;
     }
     
-    public User getUploader() {
-        return uploader;
-    }
-
-    public void setUploader(User uploader) {
-        this.uploader = uploader;
-    }
-
     public String getPhotoName() {
         return photoName;
     }
@@ -101,6 +112,22 @@ public class Photo extends AbstractChangeableEntity {
 
     public void setCommentsAllowed(Boolean commentsAllowed) {
             this.commentsAllowed = commentsAllowed;
+    }
+
+    public Set<Tag> getTags() {
+            return tags;
+    }
+
+    public void setTags(Set<Tag> tags) {
+            this.tags = tags;
+    }
+
+    public Set<Comment> getComments() {
+            return comments;
+    }
+
+    public void setComments(Set<Comment> comments) {
+            this.comments = comments;
     }
 
 }

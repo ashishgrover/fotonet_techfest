@@ -50,7 +50,7 @@ public class PhotoServiceImpl implements PhotoService {
 
 		photo.setCreatedOn(new Date());
 		photo.setPhotoName(photo.getFileData().getOriginalFilename());
-		photo.setUploader(userService.getUserBySubscriptionId(111l));
+		photo.setUploader(userService.getUserBySubscriptionId(111));
 
 		StringBuilder path = new StringBuilder(Constants.STORAGE_PATH);
 		path.append("\\").append(photo.getUploader().getSubscriptionId())

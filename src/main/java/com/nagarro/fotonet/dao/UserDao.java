@@ -16,5 +16,5 @@ GenericDao<User,Integer> {
      * @param subscriptionId
      * @return
      */
-    User getUser(long subscriptionId) throws NonUniqueResultException;
+    User getUser(Integer subscriptionId) throws NonUniqueResultException;
 }

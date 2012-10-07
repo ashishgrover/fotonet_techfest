@@ -16,7 +16,7 @@ import com.nagarro.fotonet.entity.User;
 public class UserDaoImpl extends AbstractGenericDao<User, Integer>
 implements UserDao  {
 
-    public User getUser(long subscriptionId) {
+    public User getUser(Integer subscriptionId) {
         String queryStr = "from User where subscription_id = :subscriptionId";
         Query query = em.createQuery(queryStr);
         query.setParameter("subscriptionId", subscriptionId);

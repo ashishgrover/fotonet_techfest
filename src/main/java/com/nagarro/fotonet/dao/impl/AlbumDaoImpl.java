@@ -20,19 +20,20 @@ public class AlbumDaoImpl extends AbstractGenericDao<Album, Integer> implements
         AlbumDao {
 
 
-    public List<Album> getAlbumsByUser(Integer userId) {
-        
-        String queryStr = "from Album where uploaderId = :uploaderId";
-        Query query = em.createQuery(queryStr);
-        query.setParameter("uploaderId", userId);
-        List<Album> albums = query.getResultList();
-        
-        return albums;
-    }
-
     @Override
     public List<Album> findAll() {
         // TODO Auto-generated method stub
         return null;
+    }
+
+    @Override
+    public List<Album> getAlbumsSharedWithUser(Integer userId) {
+//        String queryStr = "";
+//        Query query = em.createQuery(queryStr);
+//        query.setParameter("uploaderId", userId);
+//        List<Album> albums = query.getResultList();
+//
+//        return albums;
+        throw new UnsupportedOperationException("Not supported yet!");
     }
 }

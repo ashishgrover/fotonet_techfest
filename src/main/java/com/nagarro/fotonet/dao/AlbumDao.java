@@ -15,10 +15,10 @@ public interface AlbumDao extends GenericDao<Album, Integer> {
 
     
     /**
-     * Returns the list of names of all the albums uploaded by the user
-     * 
-     * @param userName
-     * @return List of album names
+     * Fetches all the Albums shared with User with ID as {@code userId}.
+     * @param userId User to get shared Albums for
+     * @return Albums shared
      */
-    List<Album> getAlbumsByUser(Integer userId);
+    List<Album> getAlbumsSharedWithUser(Integer userId);
+
 }
