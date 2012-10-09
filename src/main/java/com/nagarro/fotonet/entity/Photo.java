@@ -31,103 +31,90 @@ public class Photo extends AbstractChangeableEntity {
     @Column(name="photo_name")
     private String photoName;
     
-    @Column(name="path")
-    private String path;
+    @Column(name="physical_path")
+    private String physicalPath;
 
     @Version
     private Integer version;
     
+    @Column(name="comments_allowed")
     private Boolean commentsAllowed;
 
     @ManyToMany
     @JoinTable(name="album_photos",
-        joinColumns=@JoinColumn(name="photo"),
-        inverseJoinColumns=@JoinColumn(name="album"))
-    private List<Album> albums;
+        joinColumns=@JoinColumn(name="photoid"),
+        inverseJoinColumns=@JoinColumn(name="albumid"))
+    private List<Album> containerAlbums;
 
     @ManyToMany
-    @JoinTable(name="photo_tag",
-        joinColumns=@JoinColumn(name="photo"),
-        inverseJoinColumns=@JoinColumn(name="tag"))
+    @JoinTable(name="photo_tags",
+        joinColumns=@JoinColumn(name="photoid"),
+        inverseJoinColumns=@JoinColumn(name="tagid"))
     private Set<Tag> tags;
 
     @OneToMany
-    @JoinTable(name="photo_comment",
-        joinColumns=@JoinColumn(name="photo"),
-        inverseJoinColumns=@JoinColumn(name="comment"))
+    @JoinTable(name="photo_comments",
+        joinColumns=@JoinColumn(name="photoid"),
+        inverseJoinColumns=@JoinColumn(name="commentid"))
     private Set<Comment> comments;
     
     private transient CommonsMultipartFile fileData;
 
-    
-    public Photo() {}
-    
-    public Photo(String photoName, User uploader, Date createdOn) {
-        this.photoName = photoName;
-        this.createdOn = createdOn;
-    }
-    
-    public Photo(String photoName, User uploader, String path, Integer version, Date createdOn) {
-        this.photoName = photoName;
-        this.path = path;
-        this.version = version;
-        this.createdOn = createdOn;
-    }
-    
-    public String getPhotoName() {
-        return photoName;
-    }
+	public String getPhotoName() {
+		return photoName;
+	}
 
-    public void setPhotoName(String photoName) {
-        this.photoName = photoName;
-    }
+	public void setPhotoName(String photoName) {
+		this.photoName = photoName;
+	}
 
-    public String getPath() {
-        return path;
-    }
+	public String getPhysicalPath() {
+		return physicalPath;
+	}
 
-    public void setPath(String path) {
-        this.path = path;
-    }
+	public void setPhysicalPath(String physicalPath) {
+		this.physicalPath = physicalPath;
+	}
 
-    public Integer getVersion() {
-        return version;
-    }
+	public Integer getVersion() {
+		return version;
+	}
 
-    public void setVersion(Integer version) {
-        this.version = version;
-    }
+	public void setVersion(Integer version) {
+		this.version = version;
+	}
 
-    public CommonsMultipartFile getFileData() {
-            return fileData;
-    }
+	public Boolean getCommentsAllowed() {
+		return commentsAllowed;
+	}
 
-    public void setFileData(CommonsMultipartFile fileData) {
-            this.fileData = fileData;
-    }
+	public void setCommentsAllowed(Boolean commentsAllowed) {
+		this.commentsAllowed = commentsAllowed;
+	}
 
-    public Boolean getCommentsAllowed() {
-            return commentsAllowed;
-    }
+	public Set<Tag> getTags() {
+		return tags;
+	}
 
-    public void setCommentsAllowed(Boolean commentsAllowed) {
-            this.commentsAllowed = commentsAllowed;
-    }
+	public void setTags(Set<Tag> tags) {
+		this.tags = tags;
+	}
 
-    public Set<Tag> getTags() {
-            return tags;
-    }
+	public Set<Comment> getComments() {
+		return comments;
+	}
 
-    public void setTags(Set<Tag> tags) {
-            this.tags = tags;
-    }
+	public void setComments(Set<Comment> comments) {
+		this.comments = comments;
+	}
 
-    public Set<Comment> getComments() {
-            return comments;
-    }
+	public CommonsMultipartFile getFileData() {
+		return fileData;
+	}
 
-    public void setComments(Set<Comment> comments) {
-            this.comments = comments;
-    }
+	public void setFileData(CommonsMultipartFile fileData) {
+		this.fileData = fileData;
+	}
 
+  
 }
