@@ -3,7 +3,6 @@
  */
 package com.nagarro.fotonet.entity;
 
-import com.nagarro.fotonet.genentities.Sharingstatus;
 import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;

@@ -7,6 +7,7 @@ package com.nagarro.fotonet.businessfacade;
 import com.nagarro.fotonet.entity.Album;
 import com.nagarro.fotonet.exceptions.AlbumSharingStatusException;
 import com.nagarro.fotonet.exceptions.ItemNotFoundException;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -60,7 +61,7 @@ public interface AlbumFacade {
      * @param userId
      * @return List of albums shared with User
      */
-    List<Album> getSharedAlbums(Integer userId)
+    Collection<Album> getSharedAlbums(Integer userId)
             throws ItemNotFoundException;
 
     /**
@@ -69,7 +70,7 @@ public interface AlbumFacade {
      * @param userId
      * @return List of albums shared with User
      */
-    List<Album> getUserAlbums(Integer userId)
+    Collection<Album> getUserAlbums(Integer userId)
             throws ItemNotFoundException;
 
     /**
@@ -79,7 +80,7 @@ public interface AlbumFacade {
      * @param userId ID of User
      * @return Public albums of User
      */
-    List<Album> getPublicAlbumsofUser(Integer userId)
+    Collection<Album> getPublicAlbumsofUser(Integer userId)
             throws ItemNotFoundException;
 
 

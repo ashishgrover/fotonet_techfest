@@ -11,7 +11,10 @@ import com.nagarro.fotonet.exceptions.AlbumSharingStatusException;
 import com.nagarro.fotonet.exceptions.ItemNotFoundException;
 import com.nagarro.fotonet.services.AlbumService;
 import com.nagarro.fotonet.services.UserService;
+import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -41,12 +44,12 @@ public class AlbumFacadeImpl implements AlbumFacade{
         
         Album album = albumService.getAlbumById(albumId);
         
-        if(album.getSharingStatus().equals("INVALID")){
+        if(album.getSharingStatus().getStatus().equals("INVALID")){
             throw new AlbumSharingStatusException("Album not published.");
         }else{
-//            album.setSharingStatus();
+            album.getSharingStatus().setStatus(sharingStatus);
+            albumService.updateAlbum(album);
         }
-        
     }
 
     @Override
@@ -55,24 +58,33 @@ public class AlbumFacadeImpl implements AlbumFacade{
     }
 
     @Override
-    public List<Album> getUserAlbums(Integer userId) {
+    public Collection<Album> getUserAlbums(Integer userId) {
         User user = userService.getUserById(userId);
-        return null;
+        return user.getOwnedAlbums();
     }
 
     @Override
-    public List<Album> getPublicAlbumsofUser(Integer userId) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public Collection<Album> getPublicAlbumsofUser(Integer userId) {
+        Set<Album> publicAlbums = new HashSet<Album>();
+        for(Album album: userService.getUserById(userId).getOwnedAlbums()){
+            if(album.getSharingStatus().getStatus().equals("PUBLIC"));
+            publicAlbums.add(album);
+        }
+        return publicAlbums;
     }
 
     @Override
     public void setPublishStatus(Integer albumId, Boolean publish) throws ItemNotFoundException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        Album album = albumService.getAlbumById(albumId);
+        album.setPublished(publish);
+        albumService.updateAlbum(album);
     }
 
     @Override
     public void addAlbumBuddyGroups(Integer albumId, List<Integer> buddyGroupIds) throws ItemNotFoundException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        Album album = albumService.getAlbumById(albumId);
+
+        album.getSharedWithGroup().addAll(buddyGroupIds);
     }
 
     @Override

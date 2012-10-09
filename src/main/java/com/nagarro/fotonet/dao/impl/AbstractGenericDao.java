@@ -32,6 +32,7 @@ implements GenericDao<T, ID> {
         return persistentClass;
     }
     
+    @Override
     public T findById(ID id) {
         return em.find(getPersistentClass(), id);
     };
