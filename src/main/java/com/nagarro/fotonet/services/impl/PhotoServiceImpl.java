@@ -50,12 +50,11 @@ public class PhotoServiceImpl implements PhotoService {
 
 		photo.setCreatedOn(new Date());
 		photo.setPhotoName(photo.getFileData().getOriginalFilename());
-		photo.setUploader(userService.getUserBySubscriptionId(111));
 
 		StringBuilder path = new StringBuilder(Constants.STORAGE_PATH);
-		path.append("\\").append(photo.getUploader().getSubscriptionId())
+		path.append("\\").append(111)
 				.append("\\").append(photo.getFileData().getOriginalFilename());
-		photo.setPath(path.toString());
+		photo.setPhysicalPath(path.toString());
 
 		photo.setVersion(1);
 		photoDao.makePersistent(photo, false);

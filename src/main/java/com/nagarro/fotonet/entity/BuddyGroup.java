@@ -15,7 +15,7 @@ import javax.persistence.Table;
  * @author ashish1813
  */
 @Entity
-@Table(name="buddy_group")
+@Table(name="buddygroup")
 public class BuddyGroup extends AbstractChangeableEntity{
 
     @ManyToOne
@@ -62,5 +62,13 @@ public class BuddyGroup extends AbstractChangeableEntity{
     public void setSharedAlbums(Set<Album> sharedAlbums) {
         this.sharedAlbums = sharedAlbums;
     }
+
+	public User getOwner() {
+		return owner;
+	}
+
+	public void setOwner(User owner) {
+		this.owner = owner;
+	}
 
 }

@@ -116,5 +116,13 @@ public class Photo extends AbstractChangeableEntity {
 		this.fileData = fileData;
 	}
 
+	public List<Album> getContainerAlbums() {
+		return containerAlbums;
+	}
+
+	public void setContainerAlbums(List<Album> containerAlbums) {
+		this.containerAlbums = containerAlbums;
+	}
+
   
 }

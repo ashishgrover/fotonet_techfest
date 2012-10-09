@@ -3,15 +3,13 @@
  */
 package com.nagarro.fotonet.utils;
 
+import com.nagarro.fotonet.common.Constants;
+import com.nagarro.fotonet.entity.Photo;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
-
 import org.springframework.web.multipart.MultipartFile;
-
-import com.nagarro.fotonet.entity.Photo;
-import com.nagarro.fotonet.common.Constants;
 
 /**
  * @author shalini1814
@@ -21,7 +19,7 @@ public class PhotoUploadUtil {
 
 	public static void sendPhotoToServer(Photo photo) {
 		String imagePath = Constants.STORAGE_PATH + "\\"
-				+ photo.getUploader().getSubscriptionId();
+				+ "111";
 		saveToServer(photo, imagePath);
 	}
 
@@ -36,7 +34,7 @@ public class PhotoUploadUtil {
 			} else {
 				System.out
 						.println("Directory not created for user with subscriptionId : "
-								+ photo.getUploader().getSubscriptionId());
+								+ "111");
 			}
 
 			String fileName = null;

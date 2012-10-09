@@ -5,7 +5,6 @@
 package com.nagarro.fotonet.businessfacade.impl;
 
 import com.nagarro.fotonet.businessfacade.AlbumFacade;
-import com.nagarro.fotonet.common.SharingStatus;
 import com.nagarro.fotonet.entity.Album;
 import com.nagarro.fotonet.entity.User;
 import com.nagarro.fotonet.exceptions.AlbumSharingStatusException;
@@ -42,10 +41,10 @@ public class AlbumFacadeImpl implements AlbumFacade{
         
         Album album = albumService.getAlbumById(albumId);
         
-        if(album.getSharingStatus().equals(SharingStatus.INVALID)){
+        if(album.getSharingStatus().equals("INVALID")){
             throw new AlbumSharingStatusException("Album not published.");
         }else{
-            album.setSharingStatus(SharingStatus.valueOf(sharingStatus));
+//            album.setSharingStatus();
         }
         
     }

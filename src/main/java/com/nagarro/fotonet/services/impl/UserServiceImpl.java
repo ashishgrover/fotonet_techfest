@@ -21,11 +21,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-	public void createUser(String userName) {
-		
-    	User newUser = new User(userName);
-    	userDao.makePersistent(newUser, false);
-	}
+    public void createUser(User user) {
+        userDao.makePersistent(user, false);
+    }
 
     @Override
     public User getUserBySubscriptionId(Integer subscriptionId) {

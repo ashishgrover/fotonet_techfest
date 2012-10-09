@@ -3,8 +3,8 @@
  */
 package com.nagarro.fotonet.entity;
 
+import com.nagarro.fotonet.genentities.Sharingstatus;
 import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -44,8 +44,9 @@ public class Album extends AbstractChangeableEntity {
     @Column(name="published")
     private Boolean published;
 
-    @Column(name="sharing_status")
-    private String sharingStatus;
+    @OneToOne
+    @JoinColumn(name="sharing_status")
+    private SharingStatus sharingStatus;
 
     @OneToOne
     private Photo coverPhoto;
@@ -96,11 +97,11 @@ public class Album extends AbstractChangeableEntity {
 		this.published = published;
 	}
 
-	public String getSharingStatus() {
+	public SharingStatus getSharingStatus() {
 		return sharingStatus;
 	}
 
-	public void setSharingStatus(String sharingStatus) {
+	public void setSharingStatus(SharingStatus sharingStatus) {
 		this.sharingStatus = sharingStatus;
 	}
 

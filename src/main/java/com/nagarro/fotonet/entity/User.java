@@ -16,7 +16,7 @@ import javax.persistence.Version;
  *
  */
 @Entity
-@Table(name="user")
+@Table(name="fotonet_user")
 public class User extends AbstractChangeableEntity {
     
     @Version
