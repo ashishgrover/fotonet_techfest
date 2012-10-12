@@ -10,9 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.nagarro.fotonet.common.Constants;
 import com.nagarro.fotonet.dao.PhotoDao;
 import com.nagarro.fotonet.entity.Photo;
-import com.nagarro.fotonet.entity.User;
 import com.nagarro.fotonet.services.PhotoService;
-import com.nagarro.fotonet.services.UserService;
 import com.nagarro.fotonet.utils.PhotoUploadUtil;
 
 /**
@@ -27,45 +25,31 @@ public class PhotoServiceImpl implements PhotoService {
 	@Autowired
 	private PhotoDao photoDao;
 
-	@Autowired
-	private UserService userService;
-
-	@Override
-	public Photo getPhotoById(Integer id) {
-		return photoDao.findById(id);
+        public void setPhotoDao(PhotoDao photoDao) {
+            this.photoDao = photoDao;
 	}
 
 	@Override
 	public List<Photo> getPhotosInAlbum(Integer albumId) {
-		return photoDao.getPhotosInAlbum(albumId);
-	}
-
-	@Override
-	public List<Photo> getPhotosByUploader(User uploader) {
-		return photoDao.getPhotosByUploader(uploader);
+            return photoDao.getPhotosInAlbum(albumId);
 	}
 
 	@Override
 	public void uploadPhoto(Photo photo) {
 
-		photo.setCreatedOn(new Date());
-		photo.setPhotoName(photo.getFileData().getOriginalFilename());
+            photo.setCreatedOn(new Date());
+            photo.setPhotoName(photo.getFileData().getOriginalFilename());
 
-		StringBuilder path = new StringBuilder(Constants.STORAGE_PATH);
-		path.append("\\").append(111)
-				.append("\\").append(photo.getFileData().getOriginalFilename());
-		photo.setPhysicalPath(path.toString());
+            StringBuilder path = new StringBuilder(Constants.STORAGE_PATH);
+            path.append("\\").append(111)
+                            .append("\\").append(photo.getFileData().getOriginalFilename());
+            photo.setPhysicalPath(path.toString());
 
-		photo.setVersion(1);
-		photoDao.makePersistent(photo, false);
-		PhotoUploadUtil.sendPhotoToServer(photo);
+            photo.setVersion(1);
+            photoDao.makePersistent(photo, false);
+            PhotoUploadUtil.sendPhotoToServer(photo);
 	}
 
-	public PhotoDao getPhotoDao() {
-		return photoDao;
-	}
 
-	public void setPhotoDao(PhotoDao photoDao) {
-		this.photoDao = photoDao;
-	}
+	
 }

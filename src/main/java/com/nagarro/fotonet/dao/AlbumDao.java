@@ -1,11 +1,8 @@
-/**
- * 
- */
 package com.nagarro.fotonet.dao;
 
-import java.util.List;
 
 import com.nagarro.fotonet.entity.Album;
+import java.util.Collection;
 
 /**
  * @author shalini1814
@@ -19,6 +16,13 @@ public interface AlbumDao extends GenericDao<Album, Integer> {
      * @param userId User to get shared Albums for
      * @return Albums shared
      */
-    List<Album> getAlbumsSharedWithUser(Integer userId);
+    Collection<Album> getAlbumsSharedWithUser(Integer userId);
+    
+    /**
+     * Fetches all the Albums owned by User with ID as {@code ownerId}.
+     * @param ownerId User to get public albums of
+     * @return Public Albums owned
+     */
+    Collection<Album> getPublicAlbumsOfUser(Integer ownerId);
 
 }

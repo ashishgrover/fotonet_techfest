@@ -4,6 +4,7 @@
  */
 package com.nagarro.fotonet.entity;
 
+import java.util.HashMap;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
@@ -14,8 +15,11 @@ import javax.persistence.Entity;
 @Entity
 public class UserRole extends AbstractChangeableEntity {
     
-    @Column(name="roel_name")
+    @Column(name="role_name")
     private String roleName;
+    
+    @Column(name="quotas")
+    private HashMap<String, String> quotas;
 
     public String getRoleName() {
         return roleName;
@@ -24,6 +28,16 @@ public class UserRole extends AbstractChangeableEntity {
     public void setRoleName(String roleName) {
         this.roleName = roleName;
     }
+
+    public HashMap<String, String> getQuotas() {
+        return quotas;
+    }
+
+    public void setQuotas(HashMap<String, String> quotas) {
+        this.quotas = quotas;
+    }
+    
+    
     
     
 }

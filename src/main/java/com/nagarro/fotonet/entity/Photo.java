@@ -3,10 +3,10 @@
  */
 package com.nagarro.fotonet.entity;
 
-import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -15,7 +15,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Version;
-
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 
@@ -57,6 +56,9 @@ public class Photo extends AbstractChangeableEntity {
         joinColumns=@JoinColumn(name="photoid"),
         inverseJoinColumns=@JoinColumn(name="commentid"))
     private Set<Comment> comments;
+    
+    @Column(name="effect_params")
+    private HashMap<String, String> effectParams;
     
     private transient CommonsMultipartFile fileData;
 
@@ -123,6 +125,16 @@ public class Photo extends AbstractChangeableEntity {
 	public void setContainerAlbums(List<Album> containerAlbums) {
 		this.containerAlbums = containerAlbums;
 	}
+
+        public Map<String, String> getEffectParams() {
+            return effectParams;
+        }
+
+        public void setEffectParams(HashMap<String, String> effectParams) {
+            this.effectParams = effectParams;
+        }
+        
+        
 
   
 }

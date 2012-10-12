@@ -1,14 +1,11 @@
 package com.nagarro.fotonet.dao.impl;
 
-import java.util.List;
-
-import javax.persistence.Query;
-
-import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Repository;
-
 import com.nagarro.fotonet.dao.AlbumDao;
 import com.nagarro.fotonet.entity.Album;
+import java.util.Collection;
+import java.util.List;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 /**
  * @author shalini1814
@@ -35,5 +32,10 @@ public class AlbumDaoImpl extends AbstractGenericDao<Album, Integer> implements
 //
 //        return albums;
         throw new UnsupportedOperationException("Not supported yet!");
+    }
+
+    @Override
+    public Collection<Album> getPublicAlbumsOfUser(Integer ownerId) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 }
