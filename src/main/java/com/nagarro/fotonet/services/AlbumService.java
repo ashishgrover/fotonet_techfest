@@ -5,7 +5,6 @@ import com.nagarro.fotonet.entity.Photo;
 import com.nagarro.fotonet.exceptions.AlbumSharingStatusException;
 import com.nagarro.fotonet.exceptions.ItemNotFoundException;
 import java.util.Collection;
-import java.util.List;
 
 /**
  * @author shalini1814
@@ -17,10 +16,10 @@ public interface AlbumService {
      * Adds a Photo to an Album.
      * 
      * @param albumId ID of Album to add photo to
-     * @param photo Photo to be added
+     * @param photos Photos to be added
      * @return Updated Album
      */
-    Album addPhotoToAlbum(Integer albumId, Photo photo);
+    Album addPhotoToAlbum(Integer albumId, Collection<Photo> photos);
     
     /**
      * Removes a Photo from the Album
@@ -57,7 +56,7 @@ public interface AlbumService {
      * @param albumId ID of Album
      * @param buddyGroupIds ID of Buddy groups to share album with
      */
-    Album addAlbumBuddyGroups(Integer albumId, List<Integer> buddyGroupIds)
+    Album addAlbumBuddyGroups(Integer albumId, Collection<Integer> buddyGroupIds)
             throws ItemNotFoundException;
 
     /**
@@ -66,7 +65,7 @@ public interface AlbumService {
      * @param albumId ID of Album
      * @param buddyGroupIds ID of Buddy groups to stop sharing album with
      */
-    Album removeAlbumBuddyGroups(Integer albumId, List<Integer> buddyGroupIds)
+    Album removeAlbumBuddyGroups(Integer albumId, Collection<Integer> buddyGroupIds)
             throws ItemNotFoundException;
 
     /**
@@ -98,5 +97,13 @@ public interface AlbumService {
     Collection<Album> getPublicAlbumsofUser(Integer userId)
             throws ItemNotFoundException;
     
+    
+    /**
+     * Updates the album
+     * 
+     * @param album 
+     * @return Updated album
+     */
+    Album updateAlbum(Album album);
     
 }

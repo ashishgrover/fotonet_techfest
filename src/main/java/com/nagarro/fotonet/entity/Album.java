@@ -10,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Version;
@@ -50,11 +51,8 @@ public class Album extends AbstractChangeableEntity {
     @OneToOne
     private Photo coverPhoto;
 
-    @ManyToMany
-    @JoinTable(name="album_photos",
-        joinColumns=@JoinColumn(name="albumid"),
-        inverseJoinColumns=@JoinColumn(name="photoid"))
-    private Set<Photo> photos;
+    @OneToMany(mappedBy="pk.album")
+    private Set<AlbumPhoto> albumPhotos;
 
 	public User getUser() {
 		return user;
@@ -112,13 +110,13 @@ public class Album extends AbstractChangeableEntity {
 		this.coverPhoto = coverPhoto;
 	}
 
-	public Set<Photo> getPhotos() {
-		return photos;
-	}
+        public Set<AlbumPhoto> getAlbumPhotos() {
+            return albumPhotos;
+        }
 
-	public void setPhotos(Set<Photo> photos) {
-		this.photos = photos;
-	}
+        public void setAlbumPhotos(Set<AlbumPhoto> albumPhotos) {
+            this.albumPhotos = albumPhotos;
+        }
 
     
 }

@@ -39,11 +39,8 @@ public class Photo extends AbstractChangeableEntity {
     @Column(name="comments_allowed")
     private Boolean commentsAllowed;
 
-    @ManyToMany
-    @JoinTable(name="album_photos",
-        joinColumns=@JoinColumn(name="photoid"),
-        inverseJoinColumns=@JoinColumn(name="albumid"))
-    private List<Album> containerAlbums;
+    @OneToMany(mappedBy="pk.photo")
+    private Set<AlbumPhoto> albumPhoto;
 
     @ManyToMany
     @JoinTable(name="photo_tags",
@@ -118,14 +115,14 @@ public class Photo extends AbstractChangeableEntity {
 		this.fileData = fileData;
 	}
 
-	public List<Album> getContainerAlbums() {
-		return containerAlbums;
-	}
+        public Set<AlbumPhoto> getAlbumPhoto() {
+            return albumPhoto;
+        }
 
-	public void setContainerAlbums(List<Album> containerAlbums) {
-		this.containerAlbums = containerAlbums;
-	}
-
+        public void setAlbumPhoto(Set<AlbumPhoto> albumPhoto) {
+            this.albumPhoto = albumPhoto;
+        }
+        
         public Map<String, String> getEffectParams() {
             return effectParams;
         }

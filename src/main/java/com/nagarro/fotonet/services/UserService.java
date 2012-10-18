@@ -27,6 +27,4 @@ public interface UserService {
      */
     boolean checkUser(String name);
     
-    void createUser(User user);
-    
 }

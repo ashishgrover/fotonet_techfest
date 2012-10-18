@@ -12,14 +12,11 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name="effects")
+@Table(name="effect")
 public class MediaEffects extends AbstractEntity {
 
     @Column(name="name")
     private String name;
-    
-    @Column(name="method")
-    private String methodName;
 
     public String getName() {
         return name;
@@ -29,14 +26,5 @@ public class MediaEffects extends AbstractEntity {
         this.name = name;
     }
 
-    public String getMethodName() {
-        return methodName;
-    }
-
-    public void setMethodName(String methodName) {
-        this.methodName = methodName;
-    }
-    
-    
-    
+  
 }

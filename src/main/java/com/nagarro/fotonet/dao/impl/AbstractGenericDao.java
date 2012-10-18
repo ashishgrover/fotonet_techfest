@@ -1,19 +1,16 @@
 package com.nagarro.fotonet.dao.impl;
 
+import com.nagarro.fotonet.dao.GenericDao;
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
 import java.util.Map;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
-
 import org.hibernate.Criteria;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.ejb.HibernateEntityManager;
-
-import com.nagarro.fotonet.dao.GenericDao;
 
 public abstract class AbstractGenericDao<T, ID extends Serializable> 
 implements GenericDao<T, ID> {
@@ -35,7 +32,7 @@ implements GenericDao<T, ID> {
     @Override
     public T findById(ID id) {
         return em.find(getPersistentClass(), id);
-    };
+    }
 
     
     @Override
@@ -53,6 +50,7 @@ implements GenericDao<T, ID> {
         return entity;
     }
     
+    @Override
     public void makeTransient(T entity) {
         em.remove(entity);
     }
@@ -98,6 +96,7 @@ implements GenericDao<T, ID> {
         return crit.list();
     }
     
+    @Override
     public Criteria createCriteria() {
         HibernateEntityManager hibEM =
             (HibernateEntityManager) em;

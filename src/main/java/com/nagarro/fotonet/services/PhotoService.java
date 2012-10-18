@@ -1,6 +1,3 @@
-/**
- * 
- */
 package com.nagarro.fotonet.services;
 
 
@@ -95,5 +92,13 @@ public interface PhotoService {
     @Deprecated //DEFER IMPLEMENTATION
     Collection<Photo> getFilteredPhotos(Map<String, String> whereParams);
 
+    
+    /**
+     * Updates photo
+     * 
+     * @param photo
+     * @return Updated photo
+     */
+    Photo updatePhoto(Photo photo);
     
 }
