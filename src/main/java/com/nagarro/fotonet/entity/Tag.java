@@ -3,6 +3,7 @@
  */
 package com.nagarro.fotonet.entity;
 
+import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -25,7 +26,7 @@ public class Tag extends AbstractChangeableEntity {
     @JoinTable(name="photo_tags",
         joinColumns=@JoinColumn(name="tagid"),
         inverseJoinColumns=@JoinColumn(name="photoid"))
-    private Photo photo;
+    private Set<Photo> photo;
 
     @Version
     private Integer version;
@@ -33,28 +34,29 @@ public class Tag extends AbstractChangeableEntity {
     @Column(name="content")
     private String content;
 
-	public Photo getPhoto() {
-		return photo;
-	}
+    public Set<Photo> getPhoto() {
+        return photo;
+    }
 
-	public void setPhoto(Photo photo) {
-		this.photo = photo;
-	}
+    public void setPhoto(Set<Photo> photo) {
+        this.photo = photo;
+    }
 
-	public Integer getVersion() {
-		return version;
-	}
 
-	public void setVersion(Integer version) {
-		this.version = version;
-	}
+    public Integer getVersion() {
+            return version;
+    }
 
-	public String getContent() {
-		return content;
-	}
+    public void setVersion(Integer version) {
+            this.version = version;
+    }
 
-	public void setContent(String content) {
-		this.content = content;
-	}
+    public String getContent() {
+            return content;
+    }
+
+    public void setContent(String content) {
+            this.content = content;
+    }
 
 }

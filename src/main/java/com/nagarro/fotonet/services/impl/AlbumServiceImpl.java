@@ -5,12 +5,12 @@ import com.nagarro.fotonet.dao.AlbumDao;
 import com.nagarro.fotonet.dao.BuddyGroupDao;
 import com.nagarro.fotonet.dao.UserDao;
 import com.nagarro.fotonet.entity.Album;
+import com.nagarro.fotonet.entity.Photo;
 import com.nagarro.fotonet.entity.User;
 import com.nagarro.fotonet.exceptions.AlbumSharingStatusException;
 import com.nagarro.fotonet.exceptions.ItemNotFoundException;
 import com.nagarro.fotonet.services.AlbumService;
 import java.util.Collection;
-import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -59,21 +59,14 @@ public class AlbumServiceImpl implements AlbumService {
         }
     }
 
-    @Override
-    public Collection<Album> getSharedAlbums(Integer userId) throws ItemNotFoundException {
-        return albumDao.getAlbumsSharedWithUser(userId);
-    }
-
+   
     @Override
     public Collection<Album> getUserAlbums(Integer userId) {
         User user = userDao.findById(userId);
         return user.getOwnedAlbums();
     }
 
-    @Override
-    public Collection<Album> getPublicAlbumsofUser(Integer userId) {
-        return albumDao.getPublicAlbumsOfUser(userId);
-    }
+   
 
     @Override
     public Album setPublishStatus(Integer albumId, Boolean publish) throws ItemNotFoundException {
@@ -82,22 +75,41 @@ public class AlbumServiceImpl implements AlbumService {
         return albumDao.makePersistent(album,true);
     }
 
+    
+
     @Override
-    public Album addAlbumBuddyGroups(Integer albumId, List<Integer> buddyGroupIds) throws ItemNotFoundException {
-        Album album = albumDao.findById(albumId);
-        for (Integer id : buddyGroupIds) {
-            album.getSharedWithGroup().add(buddyGroupDao.findById(id));
-        }
-        return albumDao.makePersistent(album, true);
+    public Album addPhotoToAlbum(Integer albumId, Collection<Photo> photos) {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Album removeAlbumBuddyGroups(Integer albumId, List<Integer> buddyGroupIds) throws ItemNotFoundException {
-        Album album = albumDao.findById(albumId);
-        for (Integer id : buddyGroupIds) {
-            album.getSharedWithGroup().remove(buddyGroupDao.findById(id));
-        }
-        return albumDao.makePersistent(album, true);
+    public Album removePhotoFromAlbum(Integer albumId, Integer photoId) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Album addAlbumBuddyGroups(Integer albumId, Collection<Integer> buddyGroupIds) throws ItemNotFoundException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Album removeAlbumBuddyGroups(Integer albumId, Collection<Integer> buddyGroupIds) throws ItemNotFoundException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Album updateAlbum(Album album) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Collection<Album> getSharedAlbums(Integer userId) throws ItemNotFoundException {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    @Override
+    public Collection<Album> getPublicAlbumsofUser(Integer userId) throws ItemNotFoundException {
+        throw new UnsupportedOperationException("Not supported yet.");
     }
 
 }
