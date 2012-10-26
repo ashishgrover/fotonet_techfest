@@ -9,10 +9,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("home")
 public class WelcomeController {
 
-	@RequestMapping(method = RequestMethod.GET)
-	public String printWelcome(ModelMap model) {
-            
-		return "home";
-
-	}
+        @RequestMapping(method = RequestMethod.GET)
+        public String printWelcome(ModelMap model) {
+                return "home";
+        }
 }

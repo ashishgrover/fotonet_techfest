@@ -5,32 +5,10 @@
 </head>
 <body>
 
-	List of Albums Message : ${message}
-
-	<a href="upload">Upload Photo</a>
-
-
-	<%
-		if (session.getAttribute("uploadFile") != null
-
-		&& !(session.getAttribute("uploadFile")).equals("")) {
-	%>
-
-	<h3>Uploaded File</h3>
-
-	<br>
-
-	<img
-		src="<%=request.getRealPath("/") + "/images/"
-
-				+ session.getAttribute("uploadFile")%>"
-		alt="Upload Image" />
-
-	<%
-		session.removeAttribute("uploadFile");
-
-		}
-	%>
+<!--    <form action="test" method="get">
+        <input id="test_button" type="submit" />
+    </form>-->
+    <a href="test">Test create an album</a>
 
 </body>
 </html>

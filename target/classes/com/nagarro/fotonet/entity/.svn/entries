@@ -26,6 +26,40 @@ shalini1814
 
 0f1f765f-ed5f-4b21-8cbf-ec93081f00da
 
+AbstractChangeableEntity.java
+file
+
+
+
+
+2012-10-04T14:31:52.814491Z
+98dbe51456e33a6c600213a5af83d462
+2012-09-17T07:18:59.787711Z
+12
+ashish1813
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+757
+
 AbstractEntity.java
 file
 
@@ -94,40 +128,6 @@ shalini1814
 
 1009
 
-MediaSettings.java
-file
-
-
-
-
-2012-10-04T14:31:52.821991Z
-59bba89a40ca6f7bdd443bd3071f6e22
-2012-09-21T07:40:41.339029Z
-29
-shalini1814
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-1162
-
 Comment.java
 file
 
@@ -162,6 +162,63 @@ shalini1814
 
 670
 
+MediaEffects.java
+file
+
+
+
+add
+
+59bba89a40ca6f7bdd443bd3071f6e22
+
+
+
+
+
+
+
+
+
+
+
+copied
+http://svn.ggn.nagarro.com:8080/svn/techfest2012/teams/thetycoons/src/main/java/com/nagarro/fotonet/entity/MediaSettings.java
+56
+
+MediaSettings.java
+file
+
+
+
+delete
+2012-10-04T14:31:52.821991Z
+59bba89a40ca6f7bdd443bd3071f6e22
+2012-09-21T07:40:41.339029Z
+29
+shalini1814
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+1162
+
 Photo.java
 file
 
@@ -195,40 +252,6 @@ shalini1814
 
 
 2038
-
-AbstractChangeableEntity.java
-file
-
-
-
-
-2012-10-04T14:31:52.814491Z
-98dbe51456e33a6c600213a5af83d462
-2012-09-17T07:18:59.787711Z
-12
-ashish1813
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-757
 
 Tag.java
 file

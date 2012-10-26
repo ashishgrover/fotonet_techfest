@@ -23,6 +23,7 @@
           <string>WEB-INF/classes/.netbeans_automatic_build</string>
           <string>WEB-INF/classes/application-context.xml</string>
           <string>WEB-INF/classes/com/nagarro/fotonet/common/Constants.class</string>
+          <string>WEB-INF/classes/com/nagarro/fotonet/controller/TestController.class</string>
           <string>WEB-INF/classes/com/nagarro/fotonet/controller/UploadFileController.class</string>
           <string>WEB-INF/classes/com/nagarro/fotonet/controller/WelcomeController.class</string>
           <string>WEB-INF/classes/com/nagarro/fotonet/dao/AlbumDao.class</string>
@@ -50,7 +51,6 @@
           <string>WEB-INF/classes/com/nagarro/fotonet/entity/Comment.class</string>
           <string>WEB-INF/classes/com/nagarro/fotonet/entity/Frame.class</string>
           <string>WEB-INF/classes/com/nagarro/fotonet/entity/MediaEffects.class</string>
-          <string>WEB-INF/classes/com/nagarro/fotonet/entity/MediaSettings.class</string>
           <string>WEB-INF/classes/com/nagarro/fotonet/entity/Photo.class</string>
           <string>WEB-INF/classes/com/nagarro/fotonet/entity/SharingStatus.class</string>
           <string>WEB-INF/classes/com/nagarro/fotonet/entity/Tag.class</string>
